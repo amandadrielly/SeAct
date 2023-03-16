@@ -1,0 +1,292 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@prefix ACTION: <http://www.action.onto/ACTION.owl#>
+
+[rule1:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Door"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "HallBedroom"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "GoToBed"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule2:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "ToiletFlush"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Bathroom"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "UseToilet"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule3:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Door"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "HallBathroom"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "UseToilet"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule4:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "PlatesCupboard"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareBreakfast"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule5:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Fridge"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareBreakfast"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule6:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Microwave"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareBreakfast"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule7:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "GroceriesCupboard"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareBreakfast"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule8:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Door"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "HallToilet"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "TakeShower"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule9:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Door"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Front"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "LeaveHouse"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule10:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "CupsCupboard"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "GetDrink"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule11:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "PansCupboard"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareDinner"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule12:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Freezer"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareDinner"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+
+
+[rule13:(?user ACTION:hasEvent ?event0),
+(?event0 rdf:type ACTION:Event),
+(?event0 ACTION:hasValue "Dishwasher"),
+(?event0 ACTION:relatedTime ?time0),
+(?time0  ACTION:hasValue ?tval0),
+(?user ACTION:hasEvent ?event1),
+(?event1 rdf:type ACTION:Event),
+(?event1 ACTION:hasValue "Kitchen"),
+(?event1 ACTION:relatedTime ?time1),
+(?time1  ACTION:hasValue ?tval1),
+makeTemp(?activity)
+->
+(?activity rdf:type ACTION:Activity),
+(?user ACTION:hasActivity ?activity),
+(?activity ACTION:hasValue "PrepareBreakfast"),
+(?activity ACTION:relatedTime ?time1),
+(?activity ACTION:composedOf ?event0),
+(?event0 ACTION:partOf ?activity),
+(?activity ACTION:composedOf ?event1),
+(?event1 ACTION:partOf ?activity)]
+

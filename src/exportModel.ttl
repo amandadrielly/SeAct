@@ -1,0 +1,71 @@
+@prefix :      <http://www.semanticweb.org/amandadrielly/ontologies/2021/8/untitled-ontology-191#> .
+@prefix ACTION: <http://www.action.onto/ACTION.owl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+ACTION:hasName  a    owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Person .
+
+ACTION:Person  a  owl:Class .
+
+ACTION:Activity  a  owl:Class .
+
+ACTION:relatedTime  a  owl:ObjectProperty ;
+        rdfs:range  ACTION:Time .
+
+ACTION:hasEvent  a   owl:ObjectProperty ;
+        rdfs:domain  ACTION:Person ;
+        rdfs:range   ACTION:Event .
+
+ACTION:hasValue  a   owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Time , ACTION:Event , ACTION:Activity .
+
+ACTION:composedOf  a   owl:ObjectProperty ;
+        rdfs:domain    ACTION:Activity ;
+        rdfs:range     ACTION:Event ;
+        owl:inverseOf  ACTION:partOf .
+
+ACTION:hasSensor  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Event ;
+        rdfs:range   ACTION:Sensor .
+
+ACTION:Event  a  owl:Class .
+
+ACTION:2fd9c2ee-f6b2-41dc-abb4-1bf3e3253f54
+        a                ACTION:Time ;
+        ACTION:hasValue  20.0 .
+
+ACTION:ddd5b726-ca59-42f2-a59c-732efbdabb08
+        a                ACTION:Time ;
+        ACTION:hasValue  20.0 .
+
+ACTION:Sensor  a  owl:Class .
+
+ACTION:Time  a  owl:Class .
+
+ACTION:amanda  a         ACTION:Person , owl:NamedIndividual ;
+        ACTION:hasEvent  [ a                   ACTION:Event ;
+                           ACTION:hasValue     "Front" ;
+                           ACTION:relatedTime  ACTION:ddd5b726-ca59-42f2-a59c-732efbdabb08
+                         ] ;
+        ACTION:hasEvent  [ a                   ACTION:Event ;
+                           ACTION:hasValue     "Door" ;
+                           ACTION:relatedTime  ACTION:2fd9c2ee-f6b2-41dc-abb4-1bf3e3253f54
+                         ] ;
+        ACTION:hasName   "Amanda" .
+
+ACTION:hasActivity  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Person ;
+        rdfs:range   ACTION:Activity .
+
+ACTION:sensor1  a       ACTION:Sensor , owl:NamedIndividual ;
+        ACTION:hasName  "Sensor1" .
+
+<http://www.action.onto/ACTION.owl>
+        a       owl:Ontology .
+
+ACTION:partOf  a     owl:ObjectProperty ;
+        rdfs:domain  ACTION:Event ;
+        rdfs:range   ACTION:Activity .

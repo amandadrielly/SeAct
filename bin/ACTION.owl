@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/amandadrielly/ontologies/2021/8/untitled-ontology-191#"
+     xml:base="http://www.semanticweb.org/amandadrielly/ontologies/2021/8/untitled-ontology-191"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ACTION="http://www.action.onto/ACTION.owl#">
+    <owl:Ontology rdf:about="http://www.action.onto/ACTION.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#accordingTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#accordingTo">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Sensor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#composedOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#composedOf">
+        <owl:inverseOf rdf:resource="http://www.action.onto/ACTION.owl#partOf"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Action"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasAction -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#hasAction">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#hasActivity">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#hasEvent">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#hasObject">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Subject"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#partOf">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#relatedObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#relatedObject">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#relatedTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.action.onto/ACTION.owl#relatedTime">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+        <rdfs:range rdf:resource="http://www.action.onto/ACTION.owl#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#UncertaintyLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.action.onto/ACTION.owl#UncertaintyLevel">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Action"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Activity"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Event"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:intersectionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.action.onto/ACTION.owl#hasName">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Sensor"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Subject"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.action.onto/ACTION.owl#hasValue">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Object"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#uncertaintyLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.action.onto/ACTION.owl#uncertaintyLevel">
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Action"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Activity"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Event"/>
+        <rdfs:domain rdf:resource="http://www.action.onto/ACTION.owl#Uncertainty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:intersectionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Action -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Action"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Activity -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Activity"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Event -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Event"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Location -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Location">
+        <rdfs:subClassOf rdf:resource="http://www.action.onto/ACTION.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Locomotion -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Locomotion">
+        <rdfs:subClassOf rdf:resource="http://www.action.onto/ACTION.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Object -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Object"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Person -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Person">
+        <rdfs:subClassOf rdf:resource="http://www.action.onto/ACTION.owl#Subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Sensor -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Sensor"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Subject -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Subject"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Time -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Time"/>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#Uncertainty -->
+
+    <owl:Class rdf:about="http://www.action.onto/ACTION.owl#Uncertainty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#amanda -->
+
+    <owl:NamedIndividual rdf:about="http://www.action.onto/ACTION.owl#amanda">
+        <rdf:type rdf:resource="http://www.action.onto/ACTION.owl#Person"/>
+        <ACTION:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amanda</ACTION:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.action.onto/ACTION.owl#sensor1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.action.onto/ACTION.owl#sensor1">
+        <rdf:type rdf:resource="http://www.action.onto/ACTION.owl#Sensor"/>
+        <ACTION:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensor1</ACTION:hasName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

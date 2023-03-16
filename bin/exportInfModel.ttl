@@ -1,0 +1,142 @@
+@prefix :      <http://www.semanticweb.org/amandadrielly/ontologies/2021/8/untitled-ontology-191#> .
+@prefix ACTION: <http://www.action.onto/ACTION.owl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:b0    a                   ACTION:Event ;
+        ACTION:hasValue     "Front" ;
+        ACTION:partOf       _:b1 ;
+        ACTION:relatedTime  ACTION:55c7835d-fcc8-4c87-9ae5-8d39de8a1071 .
+
+_:b1    a                   ACTION:Activity ;
+        ACTION:composedOf   _:b0 , _:b2 ;
+        ACTION:hasValue     "LeaveHouse" ;
+        ACTION:relatedTime  ACTION:55c7835d-fcc8-4c87-9ae5-8d39de8a1071 .
+
+_:b2    a                   ACTION:Event ;
+        ACTION:hasValue     "Door" ;
+        ACTION:partOf       _:b1 ;
+        ACTION:relatedTime  ACTION:d1573fdc-3cd1-4750-bb97-2132a339c19e .
+
+ACTION:amanda  a            ACTION:Person , owl:NamedIndividual ;
+        ACTION:hasActivity  _:b1 ;
+        ACTION:hasEvent     _:b0 , _:b2 ;
+        ACTION:hasName      "Amanda" .
+
+ACTION:hasValue  a   owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Time , ACTION:Object .
+
+ACTION:Event  a  owl:Class .
+
+ACTION:Time  a  owl:Class .
+
+ACTION:hasObject  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Subject ;
+        rdfs:range   ACTION:Uncertainty .
+
+ACTION:accordingTo  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Uncertainty ;
+        rdfs:range   ACTION:Sensor .
+
+ACTION:Object  a  owl:Class .
+
+ACTION:relatedObject  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Uncertainty ;
+        rdfs:range   ACTION:Object .
+
+ACTION:uncertaintyLevel
+        a            owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Uncertainty , ACTION:Event , ACTION:Activity , ACTION:Action ;
+        rdfs:range   [ a                   rdfs:Datatype ;
+                       owl:intersectionOf  ( [ a                     rdfs:Datatype ;
+                                               owl:onDatatype        xsd:double ;
+                                               owl:withRestrictions  ( [ xsd:minInclusive  "0.0"^^xsd:double ]
+                                                                     )
+                                             ]
+                                             [ a                     rdfs:Datatype ;
+                                               owl:onDatatype        xsd:double ;
+                                               owl:withRestrictions  ( [ xsd:maxInclusive  "100.0"^^xsd:double ]
+                                                                     )
+                                             ]
+                                           )
+                     ] .
+
+<http://www.action.onto/ACTION.owl>
+        a       owl:Ontology .
+
+ACTION:Activity  a  owl:Class .
+
+ACTION:Uncertainty  a  owl:Class .
+
+ACTION:d1573fdc-3cd1-4750-bb97-2132a339c19e
+        a                ACTION:Time ;
+        ACTION:hasValue  20.0 .
+
+ACTION:Sensor  a  owl:Class .
+
+ACTION:Location  a       owl:Class ;
+        rdfs:subClassOf  ACTION:Object .
+
+ACTION:Action  a  owl:Class .
+
+ACTION:Subject  a  owl:Class .
+
+ACTION:Person  a         owl:Class ;
+        rdfs:subClassOf  ACTION:Subject .
+
+ACTION:hasName  a    owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Subject , ACTION:Sensor .
+
+ACTION:55c7835d-fcc8-4c87-9ae5-8d39de8a1071
+        a                ACTION:Time ;
+        ACTION:hasValue  20.0 .
+
+ACTION:sensor1  a       ACTION:Sensor , owl:NamedIndividual ;
+        ACTION:hasName  "Sensor1" .
+
+ACTION:partOf  a     owl:ObjectProperty ;
+        rdfs:domain  ACTION:Event ;
+        rdfs:range   ACTION:Action .
+
+ACTION:hasAction  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Person ;
+        rdfs:range   ACTION:Action .
+
+ACTION:relatedTime  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Uncertainty ;
+        rdfs:range   ACTION:Time .
+
+ACTION:hasActivity  a  owl:ObjectProperty ;
+        rdfs:domain  ACTION:Person ;
+        rdfs:range   ACTION:Activity .
+
+ACTION:composedOf  a   owl:ObjectProperty ;
+        rdfs:domain    ACTION:Action ;
+        rdfs:range     ACTION:Event ;
+        owl:inverseOf  ACTION:partOf .
+
+ACTION:Locomotion  a     owl:Class ;
+        rdfs:subClassOf  ACTION:Object .
+
+ACTION:hasEvent  a   owl:ObjectProperty ;
+        rdfs:domain  ACTION:Person ;
+        rdfs:range   ACTION:Event .
+
+ACTION:UncertaintyLevel
+        a            owl:DatatypeProperty ;
+        rdfs:domain  ACTION:Uncertainty , ACTION:Event , ACTION:Activity , ACTION:Action ;
+        rdfs:range   [ a                   rdfs:Datatype ;
+                       owl:intersectionOf  ( [ a                     rdfs:Datatype ;
+                                               owl:onDatatype        xsd:double ;
+                                               owl:withRestrictions  ( [ xsd:minInclusive  "0.0"^^xsd:double ]
+                                                                     )
+                                             ]
+                                             [ a                     rdfs:Datatype ;
+                                               owl:onDatatype        xsd:double ;
+                                               owl:withRestrictions  ( [ xsd:maxInclusive  "100.0"^^xsd:double ]
+                                                                     )
+                                             ]
+                                           )
+                     ] .
